@@ -1,75 +1,26 @@
-# Building Block View {#section-building-block-view}
+# Vista de Bloques de Construcción
 
-## Whitebox Overall System {#_whitebox_overall_system}
+## Visión general del sistema
 
-***\<Overview Diagram\>***
+El Sistema ERP se ha diseñado con una **arquitectura monolítica simple**, compuesta por tres contenedores principales: una aplicación web (SPA), una API que centraliza la lógica de negocio, y una base de datos relacional.
 
-Motivation
+A continuación se presenta el diagrama de contenedores (Nivel 2 - C2):
 
-:   *\<text explanation\>*
+![Diagrama de Contenedores](./images/c2_containers.png)
 
-Contained Building Blocks
+## Descripción de los contenedores
 
-:   *\<Description of contained building block (black boxes)\>*
+### Single-Page Application (SPA)
 
-Important Interfaces
+- **Tecnología**: JavaScript, React
+- **Responsabilidad**: Es la interfaz de usuario que se ejecuta en el navegador del Administrador de Compras. Permite registrar productos, proveedores y crear órdenes de compra. Se comunica con la API mediante peticiones HTTPS/JSON.
 
-:   *\<Description of important interfaces\>*
+### API Monolítica
 
-### \<Name black box 1\> {#_name_black_box_1}
+- **Tecnología**: Java, Spring Boot
+- **Responsabilidad**: Maneja toda la lógica de negocio del sistema: validación de datos, reglas del módulo de compras, y comunicación con la base de datos. Expone endpoints REST consumidos por la SPA.
 
-*\<Purpose/Responsibility\>*
+### Base de Datos
 
-*\<Interface(s)\>*
-
-*\<(Optional) Quality/Performance Characteristics\>*
-
-*\<(Optional) Directory/File Location\>*
-
-*\<(Optional) Fulfilled Requirements\>*
-
-*\<(optional) Open Issues/Problems/Risks\>*
-
-### \<Name black box 2\> {#_name_black_box_2}
-
-*\<black box template\>*
-
-### \<Name black box n\> {#_name_black_box_n}
-
-*\<black box template\>*
-
-### \<Name interface 1\> {#_name_interface_1}
-
-...​
-
-### \<Name interface m\> {#_name_interface_m}
-
-## Level 2 {#_level_2}
-
-### White Box *\<building block 1\>* {#_white_box_building_block_1}
-
-*\<white box template\>*
-
-### White Box *\<building block 2\>* {#_white_box_building_block_2}
-
-*\<white box template\>*
-
-...​
-
-### White Box *\<building block m\>* {#_white_box_building_block_m}
-
-*\<white box template\>*
-
-## Level 3 {#_level_3}
-
-### White Box \<\_building block x.1\_\> {#_white_box_building_block_x_1}
-
-*\<white box template\>*
-
-### White Box \<\_building block x.2\_\> {#_white_box_building_block_x_2}
-
-*\<white box template\>*
-
-### White Box \<\_building block y.1\_\> {#_white_box_building_block_y_1}
-
-*\<white box template\>*
+- **Tecnología**: PostgreSQL
+- **Responsabilidad**: Almacena todos los datos del ERP, incluyendo productos, proveedores, relaciones producto-proveedor y órdenes de compra. La API accede a ella mediante JDBC.
