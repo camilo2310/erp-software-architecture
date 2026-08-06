@@ -1,15 +1,21 @@
-# Cross-cutting Concepts {#section-concepts}
+# Conceptos Transversales
 
-## *\<Concept 1\>* {#_concept_1}
+## Modelo de datos - Módulo de Compras
 
-*\<explanation\>*
+A continuación se presenta el diagrama entidad-relación (MER) correspondiente a las entidades principales del Módulo de Compras: Producto, Proveedor, y la relación entre ambos.
 
-## *\<Concept 2\>* {#_concept_2}
+![Diagrama Entidad-Relación](./images/mer_compras.png)
 
-*\<explanation\>*
+## Descripción de las entidades
 
-...​
+### Producto
 
-## *\<Concept n\>* {#_concept_n}
+Representa un artículo del catálogo. Contiene el identificador único, nombre, descripción y unidad de medida.
 
-*\<explanation\>*
+### Proveedor
+
+Representa una empresa o persona externa que suministra productos. Contiene el identificador único, razón social y datos de contacto.
+
+### Producto_Proveedor
+
+Tabla intermedia que resuelve la relación muchos a muchos entre Producto y Proveedor, permitiendo que un mismo producto tenga varios proveedores y que cada asociación tenga su propio precio unitario.
